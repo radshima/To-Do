@@ -1,0 +1,93 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    width: 600px;
+    
+}
+.container .header {
+    background-color: rgb(159, 127, 255);
+    padding: 15px 40px 30px;
+    color: white;
+    text-align: center;
+}
+.container .header h2{
+    margin: 10px;
+    font-size: 35px;
+
+}
+input {
+    width: 75%;
+    float: left;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.addBtn {
+    width: 25%;
+    float: left;
+    border: none;
+    padding: 10px;
+    background: #d9d9d9;
+    color: #555;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.addBtn:hover {
+    background-color: #bbb;
+
+}
+
+.container .header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container .tasklist{
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.tasklist{
+    list-style-type: none;
+}
+.tasklist li{
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    transition: 0.3s;
+    user-select: none;
+
+}
+.tasklist li:hover{
+    background: rgb(210, 209, 215);
+}
+
+.closeBtn{
+    display: none;
+    position: absolute;
+    right: 15px;
+}
+
+ul li:hover .closeBtn{
+    display: inline-block;
+}
+
+ul li .closeBtn i:hover{
+    color: red;
+} 
