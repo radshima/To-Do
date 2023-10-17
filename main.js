@@ -5,10 +5,23 @@ let input = document.querySelector('input');
 
 addBtn.addEventListener('click' , ()=>{
     let text = input.value;
-    let task = createTask(text);
-    task.innerHTML += '<span class="closeBtn"><i class="fa-solid fa-trash"></i></span>'
-    taskList.appendChild(task);
-    input.value = "";
+    if (text !== "") {  
+        let task = createTask(text);
+        task.innerHTML += '<span class="closeBtn"><i class="fa-solid fa-trash"></i></span>'
+        taskList.appendChild(task);
+        input.value = "";
+    }
+});
+
+
+
+taskList.addEventListener('click', (e)=>{
+    if (e.target.nodeName === 'I'){
+    e.target.parentElement.parentElement.style = 'display : none';
+    }
+    if (e.target.nodeName === 'LI') {
+        e.target.classList.toggle("done")
+    }
 })
 
 function createTask(text){
@@ -16,3 +29,20 @@ function createTask(text){
     li.textContent = text;
     return li;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

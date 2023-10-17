@@ -63,6 +63,8 @@ input {
 
 .tasklist{
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 .tasklist li{
     cursor: pointer;
@@ -91,3 +93,10 @@ ul li:hover .closeBtn{
 ul li .closeBtn i:hover{
     color: red;
 } 
+
+.tasklist li.done{
+    background-color: #888;
+    color: #fff;
+   text-decoration: line-through;
+}
+
