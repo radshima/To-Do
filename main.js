@@ -20,7 +20,8 @@ taskList.addEventListener('click', (e)=>{
     e.target.parentElement.parentElement.style = 'display : none';
     }
     if (e.target.nodeName === 'LI') {
-        e.target.classList.toggle("done")
+        e.target.classList.toggle("done"),
+        e.target.classList.toggle("checked")
     }
 })
 

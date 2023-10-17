@@ -99,4 +99,24 @@ ul li .closeBtn i:hover{
     color: #fff;
    text-decoration: line-through;
 }
+.tasklist li.done::before {
+    position: absolute;
+    border-color: #fff;
+    top: 10px;
+    left: 16px;
+    height: 15px;
+    width: 7px;
+}
 
+.tasklist li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  }
