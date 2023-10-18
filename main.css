@@ -14,13 +14,16 @@ body{
     width: 600px;
     
 }
-.container .header {
-    background-color: rgb(159, 127, 255);
+.header {
+    background-color: #7751E8;
     padding: 15px 40px 30px;
     color: white;
     text-align: center;
+    border-radius: 8px 8px 0px 0px;
+
+ 
 }
-.container .header h2{
+.header h2{
     margin: 10px;
     font-size: 35px;
 
@@ -32,6 +35,7 @@ input {
     outline: none;
     padding: 10px;
     font-size: 16px;
+    border-radius: 4px 0 0 4px ;
 }
 
 .addBtn {
@@ -44,6 +48,7 @@ input {
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
+    border-radius: 0 4px 4px 0 ;
 }
 .addBtn:hover {
     background-color: #bbb;
@@ -56,28 +61,27 @@ input {
     clear: both;
 }
 
-.container .tasklist{
+.tasklist{
     max-height: 300px;
     overflow-y: auto;
-}
-
-.tasklist{
     list-style-type: none;
     margin: 0;
     padding: 0;
+    /* border-radius: 0 0 8px 8px ; */
 }
+
 .tasklist li{
     cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
-    background: #eee;
+    background: #D9CCFF;
     font-size: 18px;
     transition: 0.3s;
     user-select: none;
 
 }
 .tasklist li:hover{
-    background: rgb(210, 209, 215);
+    background: rgb(236, 234, 247);
 }
 
 .closeBtn{
@@ -95,11 +99,12 @@ ul li .closeBtn i:hover{
 } 
 
 .tasklist li.done{
-    background-color: #888;
+    background-color: #A991F1;
     color: #fff;
    text-decoration: line-through;
 }
 .tasklist li.done::before {
+
     position: absolute;
     border-color: #fff;
     top: 10px;
