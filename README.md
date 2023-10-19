@@ -12,6 +12,9 @@ A simple web-based To-Do List application built with HTML, CSS, and JavaScript. 
 
 **Persistent Data:** Your tasks are automatically saved and loaded from local storage, providing data persistence. Your tasks will remain even if you refresh the page or close your browser.
 
+## License
+
+This project is open-source and available under the [MIT License](LICENSE). You can use, modify, and distribute it as per the terms of the license.
 
 
 ## Author
