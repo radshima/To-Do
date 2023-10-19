@@ -1,68 +1,74 @@
-window.addEventListener('load',showTasks);
- 
-let addBtn = document.querySelector('button');
-let taskList = document.querySelector('ul');
-let input = document.querySelector('input');
-let tasks;
-if (!localStorage.getItem('todo')){
-    tasks = [];
-}else{
-tasks = getTasks();
+
+// Event listener for page load
+window.addEventListener('load', showTasks);
+
+// DOM elements
+const addBtn = document.querySelector('.addBtn');
+const taskList = document.querySelector('.tasklist');
+const input = document.querySelector('input');
+let tasks = [];
+
+// Check if there are tasks stored in local storage
+if (localStorage.getItem('todo')) {
+    tasks = JSON.parse(localStorage.getItem('todo'));
+    updateTasksView();
 }
 
-addBtn.addEventListener('click' , ()=>{
-    let text = input.value;
-    if (text !== "") {  
-        let task = createTask(text);
-        task.innerHTML += '<span class="closeBtn"><i class="fa-solid fa-trash"></i></span>'
-        taskList.appendChild(task);
-        saveTasks(text);
+// Add event listeners
+addBtn.addEventListener('click', addTask);
+taskList.addEventListener('click', handleTaskClick);
+
+
+// ---------------------------------------------------
+
+
+// Function to add a new task
+function addTask() {
+    const text = input.value.trim();
+    if (text) {
+        tasks.push({ text, done: false });
+        saveTasks();
         input.value = "";
+        updateTasksView();
     }
-});
+}
 
-
-taskList.addEventListener('click', (e)=>{
-    if (e.target.nodeName === 'I'){
-    let target = e.target.parentElement.parentElement;
-    target.style = 'display : none';
-    tasks.splice(tasks.indexOf(target.textContent), 1 );
-    localStorage.setItem('todo',tasks);
-
+// Function to handle task click events
+function handleTaskClick(e) {
+    if (e.target.classList.contains('fa-trash')) {
+        const taskIndex = Array.from(taskList.children).indexOf(e.target.parentElement.parentElement);
+        tasks.splice(taskIndex, 1);
+        saveTasks();
+        updateTasksView();
+    } else if (e.target.nodeName === 'LI') {
+        const taskIndex = Array.from(taskList.children).indexOf(e.target);
+        tasks[taskIndex].done = !tasks[taskIndex].done;
+        saveTasks();
+        updateTasksView();
     }
-    if (e.target.nodeName === 'LI') {
-        e.target.classList.toggle("done"),
-        e.target.classList.toggle("checked")
-    }
-})
-
-function createTask(text){
-    let li = document.createElement('li')
-    li.textContent = text;
-    return li;
 }
 
-function saveTasks (text) {
-    tasks.push(text);
-    localStorage.setItem('todo', tasks);
+// Function to save tasks to local storage
+function saveTasks() {
+    localStorage.setItem('todo', JSON.stringify(tasks));
 }
 
-function getTasks(){
-    return localStorage.getItem('todo').split(',');
-}
- 
-function showTasks(){
-for (let taskText of getTasks()) {
-    let task = createTask(taskText);
-task.innerHTML += '<span class="closeBtn"><i class="fa-solid fa-trash"></i></span>'
-taskList.appendChild(task);
-}
+// Function to display tasks on the page
+function showTasks() {
+    updateTasksView();
 }
 
+// Function to update the tasks view
+function updateTasksView() {
+    taskList.innerHTML = '';
+    tasks.forEach((task, index) => {
+        const taskElement = document.createElement('li');
+        taskElement.textContent = task.text;
 
-
-
-
-
-
-
+        if (task.done) {
+            taskElement.classList.add('done', 'checked');
+        }
+        taskElement.innerHTML += '<span class="closeBtn"><i class="fa-solid fa-trash"></i></span>';
+        taskList.appendChild(taskElement);
+    });
+}

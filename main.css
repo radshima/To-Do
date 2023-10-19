@@ -1,33 +1,33 @@
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .container {
     width: 600px;
-    
 }
+
 .header {
     background-color: #7751E8;
     padding: 15px 40px 30px;
     color: white;
     text-align: center;
-    border-radius: 8px 8px 0px 0px;
-
- 
+    border-radius: 2px 2px 0px 0px;
 }
-.header h2{
+
+.header h2 {
     margin: 10px;
     font-size: 35px;
-
 }
+
 input {
     width: 75%;
     float: left;
@@ -35,7 +35,7 @@ input {
     outline: none;
     padding: 10px;
     font-size: 16px;
-    border-radius: 4px 0 0 4px ;
+    border-radius: 4px 0 0 4px;
 }
 
 .addBtn {
@@ -48,11 +48,11 @@ input {
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
-    border-radius: 0 4px 4px 0 ;
+    border-radius: 0 4px 4px 0;
 }
+
 .addBtn:hover {
     background-color: #bbb;
-
 }
 
 .container .header::after {
@@ -61,16 +61,15 @@ input {
     clear: both;
 }
 
-.tasklist{
+.tasklist {
     max-height: 300px;
     overflow-y: auto;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    /* border-radius: 0 0 8px 8px ; */
 }
 
-.tasklist li{
+.tasklist li {
     cursor: pointer;
     position: relative;
     padding: 12px 8px 12px 40px;
@@ -78,33 +77,33 @@ input {
     font-size: 18px;
     transition: 0.3s;
     user-select: none;
-
 }
-.tasklist li:hover{
+
+.tasklist li:hover {
     background: rgb(236, 234, 247);
 }
 
-.closeBtn{
+.closeBtn {
     display: none;
     position: absolute;
     right: 15px;
 }
 
-ul li:hover .closeBtn{
+ul li:hover .closeBtn {
     display: inline-block;
 }
 
-ul li .closeBtn i:hover{
+ul li .closeBtn i:hover {
     color: red;
-} 
+}
 
-.tasklist li.done{
+.tasklist li.done {
     background-color: #A991F1;
     color: #fff;
-   text-decoration: line-through;
+    text-decoration: line-through;
 }
-.tasklist li.done::before {
 
+.tasklist li.done::before {
     position: absolute;
     border-color: #fff;
     top: 10px;
@@ -124,4 +123,4 @@ ul li .closeBtn i:hover{
     transform: rotate(45deg);
     height: 15px;
     width: 7px;
-  }
+}
